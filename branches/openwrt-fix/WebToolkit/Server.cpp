@@ -43,20 +43,11 @@ Server& Server::Instance()
 	return *instance;
 }
 
-#ifdef WIN32
-DWORD WINAPI
-#else
-void*
-#endif
-client_thread(void* d)
+void client_thread(void* d)
 {
-#ifndef WIN32
-	signal(SIGPIPE,SIG_IGN);
-#endif
 	Socket* socket=reinterpret_cast<Socket*>(d);
 	Client client(socket);
 	client.Run();
-	return 0;
 }
 
 void Server::Run()
@@ -72,17 +63,7 @@ void Server::Run()
 		if(listener.Wait(500))
 		{
 			Socket* socket=listener.Accept();
-#ifdef WIN32
-			HANDLE thread;
-			CreateThread(NULL,0,client_thread,socket,0,(LPDWORD)&thread);
-#else
-			pthread_t thread;
-			pthread_attr_t attr;
-			pthread_attr_init(&attr);
-			pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_DETACHED);
-			pthread_create(&thread,&attr,client_thread,socket);
-			pthread_attr_destroy(&attr);
-#endif
+			Thread::StartThread(client_thread,socket);
 		}
 #ifndef WIN32
 		sigpending(&sigset);

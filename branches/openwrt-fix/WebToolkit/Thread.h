@@ -7,6 +7,14 @@
 #include <pthread.h>
 #endif
 
+typedef void (*ThreadProc)(void* arg);
+
+class Thread
+{
+public:
+	static void StartThread(ThreadProc threadProc,void* arg);
+};
+
 class Mutex
 {
 private:
