@@ -16,12 +16,5 @@ public:
 	void DirectSend(const char* buf,int len);
 };
 
-class ClientThreadLauncher:public Thread
-{
-public:
-	Socket* socket;
-	void Run();
-};
-
 #endif
 
