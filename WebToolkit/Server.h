@@ -34,6 +34,7 @@ private:
 	Mutex clientsMutex;
 	volatile int clientsCount;
 	int listenerPort;
+	ClientThreadLauncher clientLauncher;
 public:
 	volatile bool terminated;
 	Server(int port);

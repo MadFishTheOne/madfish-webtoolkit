@@ -54,7 +54,10 @@ void Server::Run()
 	while(!terminated)
 	{
 		if(listener.Wait(500))
-			(new Client(listener.Accept()))->Start();
+		{
+			clientLauncher.socket=listener.Accept();
+			clientLauncher.Start();
+		}
 #ifndef WIN32
 		sigpending(&sigset);
 		if(sigismember(&sigset,SIGINT)||sigismember(&sigset,SIGTERM))
@@ -177,7 +180,7 @@ void Server::ServeFile(const string& fileName,HttpRequest* request,HttpResponse*
 		}
 	}
 	response->Send();
-	char buf[10240];
+	char buf[1024];
 	while(contentLength>0)
 	{
 		int br;
