@@ -50,7 +50,9 @@ void*
 #endif
 client_thread(void* d)
 {
+#ifndef WIN32
 	signal(SIGPIPE,SIG_IGN);
+#endif
 	Socket* socket=reinterpret_cast<Socket*>(d);
 	Client client(socket);
 	client.Run();
