@@ -41,7 +41,6 @@ void Client::Run()
 	{
 		Server::Instance().LogWrite(LogError,e.what());
 	}
-	delete this;
 }
 
 void Client::DirectSend(const char* buf,int len)
@@ -49,12 +48,8 @@ void Client::DirectSend(const char* buf,int len)
 	socket->Write(buf,len);
 }
 
-void Client::Start()
+void ClientThreadLauncher::Run()
 {
-#ifdef __UCLIBC__
-	Run();
-#else
-	Thread::Start();
-#endif
+	Client client(socket);
+	client.Run();
 }
-

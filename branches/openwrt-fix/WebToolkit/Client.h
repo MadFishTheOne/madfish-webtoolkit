@@ -5,7 +5,7 @@
 #include "Thread.h"
 #include "Http.h"
 
-class Client:public Thread,public HttpResponse
+class Client:public HttpResponse
 {
 private:
 	Socket* socket;
@@ -14,7 +14,13 @@ public:
 	~Client();
 	void Run();
 	void DirectSend(const char* buf,int len);
-	void Start();
+};
+
+class ClientThreadLauncher:public Thread
+{
+public:
+	Socket* socket;
+	void Run();
 };
 
 #endif
