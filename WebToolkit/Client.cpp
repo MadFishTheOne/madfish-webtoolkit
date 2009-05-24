@@ -47,9 +47,3 @@ void Client::DirectSend(const char* buf,int len)
 {
 	socket->Write(buf,len);
 }
-
-void ClientThreadLauncher::Run()
-{
-	Client client(socket);
-	client.Run();
-}
