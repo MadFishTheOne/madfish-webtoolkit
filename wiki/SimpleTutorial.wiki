@@ -1,5 +1,5 @@
 #labels Featured
-For a tutorial, you should get the code and look at HelloWorld application.
+For a tutorial, you should get the code and look at !HelloWorld application.
 
 Quick links:
  * [http://code.google.com/p/madfish-webtoolkit/source/browse/trunk/HelloWorld/Main.h Main.h]
