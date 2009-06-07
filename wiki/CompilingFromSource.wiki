@@ -1,0 +1,27 @@
+#labels Featured
+To compile !WebToolkit from source, you have to install [http://www.cmake.org/ cmake].
+
+1. Check out code from svn:
+{{{
+svn checkout http://madfish-webtoolkit.googlecode.com/svn/trunk/ WebApps
+}}}
+
+2. Create build folder:
+{{{
+mkdir WebAppsBuild
+cd WebAppsBuild
+}}}
+
+3. Invoke cmake.
+
+For Windows (Visual Studio 2008)
+{{{
+cmake -G "Visual Studio 9 2008" ..\WebApps
+}}}
+
+For Linux (by default it will use Unix makefiles, and that is ok)
+{{{
+cmake ../WebApps
+}}}
+
+4. Ok, you have the executable. Now take your data files and put it together with your executable. That's all.
