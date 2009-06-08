@@ -26,7 +26,7 @@ cmake ../WebApps
 
 4. Build.
 
-For Windows: open generated Visual Studio solution, and run build.
-For Linux: just run make.
+ * For Windows: open generated Visual Studio solution, and run build.
+ * For Linux: just run make.
 
 5. Ok, you have the executable. Now take your data files and put it together with your executable. That's all.
