@@ -19,9 +19,10 @@ For Windows (Visual Studio 2008)
 cmake -G "Visual Studio 9 2008" ..\WebApps
 }}}
 
-For Linux (by default it will use Unix makefiles, and that is ok)
+For Unix-like systems (by default it will use Unix makefiles, and that is ok)
 {{{
-cmake ../WebApps
+cmake ../WebApps                                  #Debug version
+cmake -DCMAKE_BUILD_TYPE=Release ../WebApps       #Release version
 }}}
 
 4. Build.
