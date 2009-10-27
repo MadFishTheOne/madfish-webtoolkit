@@ -31,4 +31,4 @@ cmake -DCMAKE_BUILD_TYPE=Release -DDOCS=YES ../WebApps   #Release version with d
  * For Windows: open generated Visual Studio solution, and run build.
  * For Linux: just run make.
 
-5. Ok, you have the executable. Now take your data files and put it together with your executable. That's all.
+5. For !FileServer and !RatioProxy you should put their data files in the executable's folder (you should find them in the Data folders). For example, for !RatioProxy you should put !RatioProxy.exe and !RatioProxy.conf into one folder for it to work.
